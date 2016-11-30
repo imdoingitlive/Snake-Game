@@ -4,10 +4,11 @@ var scl = 20;
 var food;
 
 function setup() {
-    createCanvas(600, 600);
+    var canvas = createCanvas(600, 600);
+    canvas.parent('sketch');
+    
     snake = new Snake();
     frameRate(10);
-
     pickLocation();
 }
 
@@ -20,12 +21,14 @@ function pickLocation () {
 
 function draw() {
     background(51);
-    snake.update();
-    snake.show();
 
     if (snake.eat(food)) {
         pickLocation();
     }
+
+    snake.death();
+    snake.update();
+    snake.show();
 
     fill(255, 0, 100);
     rect(food.x, food.y, scl, scl);
