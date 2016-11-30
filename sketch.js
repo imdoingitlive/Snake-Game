@@ -6,7 +6,7 @@ var food;
 function setup() {
     var canvas = createCanvas(600, 600);
     canvas.parent('sketch');
-    
+
     snake = new Snake();
     frameRate(10);
     pickLocation();
@@ -30,7 +30,7 @@ function draw() {
     snake.update();
     snake.show();
 
-    fill(255, 0, 100);
+    fill(192, 90, 90);
     rect(food.x, food.y, scl, scl);
 }
 
