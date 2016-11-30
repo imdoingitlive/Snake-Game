@@ -1,6 +1,6 @@
 var snake;
 var scl = 20;
-
+var highScore = 0;
 var food;
 
 function setup() {
@@ -32,6 +32,19 @@ function draw() {
 
     fill(192, 90, 90);
     rect(food.x, food.y, scl, scl);
+
+    var score = snake.tail.length * 100;
+
+    if (highScore < score) {
+        highScore = score;
+    }
+
+    textAlign(LEFT, TOP);
+    textSize(20);
+    textStyle(BOLD);
+    fill('#5ac1c1');
+    text("SCORE: " + score, width-580, 30);
+    text("HIGH SCORE: " + highScore, width-580, 10);
 }
 
 function keyPressed() {
